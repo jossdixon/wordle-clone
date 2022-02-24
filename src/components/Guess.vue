@@ -1,5 +1,6 @@
 <template>
-  <form @submit.prevent="handleSubmit">
+  <div class="container">
+    <form @submit.prevent="handleSubmit">
     <input type="text" v-model="first">
     <input type="text" v-model="second">
     <input type="text" v-model="third">
@@ -8,7 +9,8 @@
     <input type="submit">
     <div v-if="entryError" class="error">{{ entryError }}</div>
     <div v-if="guessResponse" class="error">{{ guessResponse }}</div>
-  </form>
+    </form>
+  </div>
 
 </template>
 
@@ -57,7 +59,7 @@ export default {
 
 <style>
   input[type=text] {
-    width: 100%;
+    width: 10%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;

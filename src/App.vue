@@ -18,7 +18,7 @@ export default {
     function sample(array) {
       return array[Math.floor ( Math.random() * array.length )]
     }
-    const words = ['words', 'flame'];
+    const words = ['words', 'flame', 'brown'];
     this.word = sample(words).split('');
     console.log(this.word);
   }
