@@ -1,6 +1,11 @@
 <template>
   <h1>Wordle Clone</h1>
-  <Guess :word="word"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="1"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="2"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="3"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="4"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="5"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="6"/>
 </template>
 
 <script>
@@ -12,6 +17,13 @@ export default {
   data() {
     return {
       word: [''],
+      guessCounter: 1
+    }
+  },
+  methods: {
+    increaseCounter() {
+      this.guessCounter ++;
+      console.log(`App says guess count is ${this.guessCounter}`);
     }
   },
   mounted() {

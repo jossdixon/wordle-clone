@@ -1,11 +1,12 @@
 <template>
-  <div class="container">
+
+  <div class="container mb-3">
     <form @submit.prevent="handleSubmit">
-    <input type="text" v-model="first">
-    <input type="text" v-model="second">
-    <input type="text" v-model="third">
-    <input type="text" v-model="fourth">
-    <input type="text" v-model="fifth">
+    <input type="text" maxlength="1" v-model="first" :disabled="isCurrent">
+    <input type="text" maxlength="1" v-model="second" :disabled="isCurrent">
+    <input type="text" maxlength="1" v-model="third" :disabled="isCurrent">
+    <input type="text" maxlength="1" v-model="fourth" :disabled="isCurrent">
+    <input type="text" maxlength="1" v-model="fifth" :disabled="isCurrent">
     <input type="submit">
     <div v-if="entryError" class="error">{{ entryError }}</div>
     <div v-if="guessResponse" class="error">{{ guessResponse }}</div>
@@ -17,16 +18,17 @@
 <script>
 
 export default {
-  props: ['word'],
+  props: ['word', 'formCounter', 'guessCounter'],
   data() {
     return {
+      isCurrent: false,
       first: '',
       second: '',
       third: '',
       fourth: '',
       fifth: '',
       entryError: '',
-      guessResponse: ''
+      guessResponse: '',
     }
   },
   methods: {
@@ -51,6 +53,9 @@ export default {
           })
         }
       }
+      this.$emit('emitGuessCounter');
+      console.log(this.isCurrent);
+      this.isCurrent = (this.formCounter + 1) === this.guessCounter;
     }
   }
 }
@@ -59,9 +64,17 @@ export default {
 
 <style>
   input[type=text] {
-    width: 10%;
-    padding: 12px 20px;
-    margin: 8px 0;
+    width: 8%;
+    padding: 8px;
+    margin: 8px;
+    border: none;
+    border-bottom: 4px solid darkgray;
     box-sizing: border-box;
+    text-align: center;
+    outline: none;
+    font-size: 24px;
+  }
+  input[type=text]:focus {
+    border-bottom: 4px solid rgb(65, 65, 65)
   }
 </style>
