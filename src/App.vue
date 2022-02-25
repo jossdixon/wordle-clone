@@ -1,11 +1,8 @@
 <template>
   <h1>Wordle Clone</h1>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="1" :guessCounter="guessCounter"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="2" :guessCounter="guessCounter"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="3" :guessCounter="guessCounter"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="4" :guessCounter="guessCounter"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="5" :guessCounter="guessCounter"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="6" :guessCounter="guessCounter"/>
+  <div v-for="n in 6" :key="n">
+    <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="n" :guessCounter="guessCounter"/>
+  </div>
 </template>
 
 <script>
@@ -23,7 +20,6 @@ export default {
   methods: {
     increaseCounter() {
       this.guessCounter ++;
-      console.log(`App says guess count is ${this.guessCounter}`);
     }
   },
   mounted() {
@@ -44,6 +40,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding: 24px;
+  background-color:antiquewhite;
+  height: 100vh;
 }
 </style>
