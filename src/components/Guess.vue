@@ -2,11 +2,11 @@
 
   <div class="container mb-3">
     <form @submit.prevent="handleSubmit">
-    <input type="text" maxlength="1" v-model="first" :disabled="isCurrent">
-    <input type="text" maxlength="1" v-model="second" :disabled="isCurrent">
-    <input type="text" maxlength="1" v-model="third" :disabled="isCurrent">
-    <input type="text" maxlength="1" v-model="fourth" :disabled="isCurrent">
-    <input type="text" maxlength="1" v-model="fifth" :disabled="isCurrent">
+    <input type="text" maxlength="1" v-model="first" :disabled="this.formCounter !== this.guessCounter">
+    <input type="text" maxlength="1" v-model="second" :disabled="this.formCounter !== this.guessCounter">
+    <input type="text" maxlength="1" v-model="third" :disabled="this.formCounter !== this.guessCounter">
+    <input type="text" maxlength="1" v-model="fourth" :disabled="this.formCounter !== this.guessCounter">
+    <input type="text" maxlength="1" v-model="fifth" :disabled="this.formCounter !== this.guessCounter">
     <input type="submit">
     <div v-if="entryError" class="error">{{ entryError }}</div>
     <div v-if="guessResponse" class="error">{{ guessResponse }}</div>
@@ -21,7 +21,6 @@ export default {
   props: ['word', 'formCounter', 'guessCounter'],
   data() {
     return {
-      isCurrent: false,
       first: '',
       second: '',
       third: '',
@@ -52,10 +51,8 @@ export default {
             }
           })
         }
+        this.$emit('emitGuessCounter')
       }
-      this.$emit('emitGuessCounter');
-      console.log(this.isCurrent);
-      this.isCurrent = (this.formCounter + 1) === this.guessCounter;
     }
   }
 }

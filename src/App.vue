@@ -1,11 +1,11 @@
 <template>
   <h1>Wordle Clone</h1>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="1"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="2"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="3"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="4"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="5"/>
-  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="6"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="1" :guessCounter="guessCounter"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="2" :guessCounter="guessCounter"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="3" :guessCounter="guessCounter"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="4" :guessCounter="guessCounter"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="5" :guessCounter="guessCounter"/>
+  <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="6" :guessCounter="guessCounter"/>
 </template>
 
 <script>
