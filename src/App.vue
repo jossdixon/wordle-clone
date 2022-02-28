@@ -40,7 +40,7 @@ export default {
       this.showModal = !this.showModal;
     },
     resetGame() {
-      this.guessCounter = 0;
+      this.guessCounter = 9;
     }
   },
   mounted() {
