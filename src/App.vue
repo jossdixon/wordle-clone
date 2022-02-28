@@ -1,5 +1,5 @@
 <template>
-  <h1><strong>DORDLE</strong></h1>
+  <h1><strong>JODIWORDLE</strong></h1>
   <div v-for="n in 6" :key="n">
     <Guess
       :word="word"
@@ -47,7 +47,18 @@ export default {
     function sample(array) {
       return array[Math.floor ( Math.random() * array.length )]
     }
-    const words = ['words'];
+    const words = [
+      'words',
+      'flame',
+      'beans',
+      'grand',
+      'shave',
+      'mouth',
+      'plane',
+      'cabin',
+      'doubt',
+      'ample',
+      ];
     this.word = sample(words).split('');
     console.log(this.word);
   }
@@ -60,14 +71,17 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: darkslategrey;
+  color: #474954;
   padding: 0;
-  background-color: lightblue;
+  background-color: #9E788F;
   min-height: 100vh;
   min-width: 100vw;
   margin: 0;
   position: fixed;
   top: 0;
   left: 0;
+}
+h1 {
+  font-size: 48px;
 }
 </style>

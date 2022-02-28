@@ -83,7 +83,13 @@ export default {
   methods: {
     handleSubmit() {
       this.guessResponse = '';
-      const guessJoined = [this.first.entry, this.second.entry, this.third.entry, this.fourth.entry, this.fifth.entry];
+      const guessJoined = [
+        this.first.entry.toLowerCase(),
+        this.second.entry.toLowerCase(),
+        this.third.entry.toLowerCase(),
+        this.fourth.entry.toLowerCase(),
+        this.fifth.entry.toLowerCase()
+      ];
       this.entryError = guessJoined.includes('') ? 'Word is too short' : '';
 
       if (!this.entryError) {
@@ -158,26 +164,33 @@ export default {
 </script>
 
 <style>
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   input[type=text] {
-    width: 5%;
+    width: 4rem;
+    line-height: 2rem;
     padding: 8px;
-    margin: 16px;
+    padding-bottom: 12px;
+    margin: 8px;
+    font-size: 36px;
     border: none;
-    /* border-bottom: 4px solid rgb(107, 106, 106); */
-    background-color: whitesmoke;
+    background-color: #FBFFF1;
     box-sizing: border-box;
     text-align: center;
     outline: none;
-    font-size: 24px;
+    font-family: 'Fredoka', sans-serif;
   }
   input[type=text]:focus {
-    background-color: rgb(255, 203, 211);
+    background-color: #F3FFD6;
   }
   input[type=text].present {
-    background-color: rgb(216, 191, 128);
+    background-color: #FF7D00;
   }
   input[type=text].placed {
-    background-color:  rgb(141, 194, 164);
+    background-color: #6C9A8B;
   }
 
 </style>
