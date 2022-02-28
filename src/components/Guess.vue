@@ -7,35 +7,35 @@
       maxlength="1"
       v-model="first.entry"
       :class="{ present: first.present, placed: first.placed }"
-      :disabled="this.formCounter !== this.guessCounter"
+      :disabled="(this.formCounter - 1) !== this.guessCounter"
     >
     <input
       type="text"
       maxlength="1"
       v-model="second.entry"
       :class="{ present: second.present, placed: second.placed }"
-      :disabled="this.formCounter !== this.guessCounter"
+      :disabled="(this.formCounter - 1) !== this.guessCounter"
     >
     <input
       type="text"
       maxlength="1"
       v-model="third.entry"
       :class="{ present: third.present, placed: third.placed }"
-      :disabled="this.formCounter !== this.guessCounter"
+      :disabled="(this.formCounter - 1) !== this.guessCounter"
     >
     <input
       type="text"
       maxlength="1"
       v-model="fourth.entry"
       :class="{ present: fourth.present, placed: fourth.placed }"
-      :disabled="this.formCounter !== this.guessCounter"
+      :disabled="(this.formCounter - 1) !== this.guessCounter"
     >
     <input
       type="text"
       maxlength="1"
       v-model="fifth.entry"
       :class="{ present: fifth.present, placed: fifth.placed }"
-      :disabled="this.formCounter !== this.guessCounter"
+      :disabled="(this.formCounter - 1) !== this.guessCounter"
     >
     <!-- <input type="submit" v-on:keyup.enter > -->
     <div v-if="entryError" class="error">{{ entryError }}</div>
@@ -88,8 +88,8 @@ export default {
 
       if (!this.entryError) {
         while (this.guessResponse === '') {
-          console.log(this.word.join(''));
-          console.log(guessJoined.join(''));
+          // console.log(this.word.join(''));
+          // console.log(guessJoined.join(''));
           if (guessJoined.join('') === this.word.join('')) {
             this.guessResponse = 'Spot on';
             [this.first, this.second, this.third, this.fourth, this.fifth].forEach(i => i.placed = true);

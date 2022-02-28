@@ -1,10 +1,8 @@
 <template>
   <div class="backdrop" @click.self="hideModal">
     <div class="modal">
-      <div class="text">
-        <h2>You got the Dordle in {{ guessCounter }} guesses.</h2>
-        <h4>{{ rank }}</h4>
-      </div>
+      <h2>You got the Dordle in {{ guessCounter }} {{ (guessCounter === 1) ? 'attempt' : 'attempts' }}.</h2>
+      <h4>{{ rank }}</h4>
     </div>
   </div>
 </template>
@@ -55,13 +53,11 @@ export default {
     border-radius: 8px;
   }
   .backdrop {
-    position: fixed;
     top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: lightgray;
-    opacity: 0.5;
+    position: fixed;
+    background: rgb(47, 79, 79, 0.5);
+    width: 100%;
+    height: 100%;
   }
 
 </style>
