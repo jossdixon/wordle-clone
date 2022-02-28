@@ -21,10 +21,10 @@ export default {
         this.rank = 'Be honest. Did you cheat?'
       break;
       case 2:
-        this.rank = 'Jammy. Very jammy.'
+        this.rank = 'Luck has smiled upon you this day.'
       break;
       case 3:
-        this.rank = 'Solid guessing, my friend.'
+        this.rank = 'Excellent work, my friend.'
       break;
       case 4:
         this.rank = 'Good effort.'

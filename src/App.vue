@@ -59,7 +59,9 @@ export default {
       'doubt',
       'ample',
       'extra',
-      'large'
+      'large',
+      'query',
+      'track'
       ];
     this.word = sample(words).split('');
   }
