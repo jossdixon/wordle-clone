@@ -1,25 +1,33 @@
 <template>
-  <h1>Wordle Clone</h1>
+  <div v-if="showModal">
+    <Modal :guessCounter="guessCounter" @close="showModal" />
+  </div>
+  <h1><strong>DORDLE</strong></h1>
   <div v-for="n in 6" :key="n">
-    <Guess :word="word" @emitGuessCounter="increaseCounter" :formCounter="n" :guessCounter="guessCounter"/>
+    <Guess :word="word" @emitGuessCounter="increaseCounter" @emitVictory="showVictory" :formCounter="n" :guessCounter="guessCounter"/>
   </div>
 </template>
 
 <script>
 import Guess from './components/Guess.vue'
+import Modal from './components/Modal.vue'
 
 export default {
   name: 'App',
-  components: { Guess },
+  components: { Guess, Modal },
   data() {
     return {
       word: [''],
-      guessCounter: 1
+      guessCounter: 1,
+      showModal: false
     }
   },
   methods: {
     increaseCounter() {
       this.guessCounter ++;
+    },
+    showVictory() {
+      this.showModal = !this.showModal;
     }
   },
   mounted() {
@@ -35,13 +43,13 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Fredoka', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   padding: 24px;
-  background-color:antiquewhite;
+  background-color: lightblue;
   height: 100vh;
 }
 </style>

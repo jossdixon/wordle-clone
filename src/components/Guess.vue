@@ -93,6 +93,7 @@ export default {
           if (guessJoined.join('') === this.word.join('')) {
             this.guessResponse = 'Spot on';
             [this.first, this.second, this.third, this.fourth, this.fifth].forEach(i => i.placed = true);
+            this.$emit('emitVictory');
           } else {
             this.word.forEach((letter) => {
               switch(letter) {
@@ -168,16 +169,15 @@ export default {
     text-align: center;
     outline: none;
     font-size: 24px;
-    font-weight: bold;
   }
   input[type=text]:focus {
-    background-color: lightpink;
+    background-color: rgb(255, 203, 211);
   }
   input[type=text].present {
-    background-color: goldenrod;
+    background-color: rgb(216, 191, 128);
   }
   input[type=text].placed {
-    background-color:  seagreen;
+    background-color:  rgb(141, 194, 164);
   }
 
 </style>
