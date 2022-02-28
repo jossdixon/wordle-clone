@@ -1,7 +1,7 @@
 <template>
   <div class="backdrop" @click.self="hideModal">
     <div class="modal">
-      <h2>You got the Dordle in {{ guessCounter }} {{ (guessCounter === 1) ? 'attempt' : 'attempts' }}.</h2>
+      <h2>You got the Jordle in {{ guessCounter }} {{ (guessCounter === 1) ? 'attempt' : 'attempts' }}.</h2>
       <p>{{ rank }}</p>
     </div>
   </div>

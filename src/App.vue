@@ -1,5 +1,5 @@
 <template>
-  <h1><strong>JODIWORDLE</strong></h1>
+  <h1><strong>JORDLE</strong></h1>
   <div v-for="n in 6" :key="n">
     <Guess
       :word="word"
