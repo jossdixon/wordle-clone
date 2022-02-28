@@ -1,6 +1,6 @@
 <template>
 
-  <div class="container mb-3">
+  <div>
     <form @keyup.enter="handleSubmit">
     <input
       type="text"

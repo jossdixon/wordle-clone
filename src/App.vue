@@ -1,11 +1,20 @@
 <template>
   <h1><strong>DORDLE</strong></h1>
   <div v-for="n in 6" :key="n">
-    <Guess :word="word" @emitGuessCounter="increaseCounter" @emitVictory="toggleModal" :formCounter="n" :guessCounter="guessCounter"/>
+    <Guess
+      :word="word"
+      @emitGuessCounter="increaseCounter"
+      @emitVictory="toggleModal"
+      :formCounter="n"
+      :guessCounter="guessCounter"
+    />
   </div>
   <div v-if="showModal">
-    <Modal @close="toggleModal" :guessCounter="guessCounter">
-    </Modal>
+    <Modal
+      @close="toggleModal"
+      :guessCounter="guessCounter"
+      @reset="resetGame"
+    />
   </div>
 </template>
 
@@ -29,6 +38,9 @@ export default {
     },
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    resetGame() {
+      this.guessCounter = 0;
     }
   },
   mounted() {
@@ -49,11 +61,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: darkslategrey;
-  padding: 24px;
+  padding: 0;
   background-color: lightblue;
-
-}
-h1 {
-  display: inline-block;
+  min-height: 100vh;
+  min-width: 100vw;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="backdrop" @click.self="hideModal">
     <div class="modal">
       <h2>You got the Dordle in {{ guessCounter }} {{ (guessCounter === 1) ? 'attempt' : 'attempts' }}.</h2>
-      <h4>{{ rank }}</h4>
+      <p>{{ rank }}</p>
     </div>
   </div>
 </template>
@@ -39,6 +39,7 @@ export default {
   methods: {
     hideModal() {
       this.$emit('close');
+      this.$emit('reset');
     }
   }
 }
@@ -58,6 +59,9 @@ export default {
     background: rgb(47, 79, 79, 0.5);
     width: 100%;
     height: 100%;
+  }
+  p {
+    font-size: 20px;
   }
 
 </style>
