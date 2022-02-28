@@ -62,7 +62,6 @@ export default {
       'large'
       ];
     this.word = sample(words).split('');
-    console.log(this.word);
   }
 }
 </script>

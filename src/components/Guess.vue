@@ -90,7 +90,6 @@ export default {
         this.fourth.entry.toLowerCase(),
         this.fifth.entry.toLowerCase()
       ];
-      console.log(guessJoined)
       this.entryError = guessJoined.includes('') ? 'Word is too short' : '';
       if (!this.entryError) {
         while (this.guessResponse === '') {
