@@ -90,8 +90,8 @@ export default {
         this.fourth.entry.toLowerCase(),
         this.fifth.entry.toLowerCase()
       ];
+      console.log(guessJoined)
       this.entryError = guessJoined.includes('') ? 'Word is too short' : '';
-
       if (!this.entryError) {
         while (this.guessResponse === '') {
           // console.log(this.word.join(''));
@@ -103,7 +103,7 @@ export default {
           } else {
             this.word.forEach((letter) => {
               switch(letter) {
-                case this.first.entry:
+                case this.first.entry.toLowerCase():
                   if (this.word[0] === letter) {
                     this.guessResponse = 'firstplaced';
                     this.first.placed = true;
@@ -112,7 +112,7 @@ export default {
                     this.first.present = true;
                   }
                   break;
-                case this.second.entry:
+                case this.second.entry.toLowerCase():
                   if (this.word[1] === letter) {
                     this.guessResponse = 'secondplaced';
                     this.second.placed = true;
@@ -121,7 +121,7 @@ export default {
                     this.second.present = true;
                   }
                   break;
-                case this.third.entry:
+                case this.third.entry.toLowerCase():
                   if (this.word[2] === letter) {
                     this.guessResponse = 'thirdplaced';
                     this.third.placed = true;
@@ -130,7 +130,7 @@ export default {
                     this.third.present = true;
                   }
                   break;
-                case this.fourth.entry:
+                case this.fourth.entry.toLowerCase():
                   if (this.word[3] === letter) {
                     this.guessResponse = 'fourthplaced';
                     this.fourth.placed = true;
@@ -139,7 +139,7 @@ export default {
                     this.fourth.present = true;
                   }
                   break;
-                case this.fifth.entry:
+                case this.fifth.entry.toLowerCase():
                   if (this.word[4] === letter) {
                     this.guessResponse = 'fifthplaced';
                     this.fifth.placed = true;
@@ -149,8 +149,7 @@ export default {
                   }
                   break;
                 default:
-                  console.log('default');
-                  this.guessResponse = 'default';
+                  this.guessResponse = 'break';
               }
             })
           }
