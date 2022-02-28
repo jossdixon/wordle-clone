@@ -58,6 +58,8 @@ export default {
       'cabin',
       'doubt',
       'ample',
+      'empty',
+      'large'
       ];
     this.word = sample(words).split('');
     console.log(this.word);
