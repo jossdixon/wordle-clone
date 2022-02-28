@@ -176,6 +176,7 @@ export default {
     padding-bottom: 12px;
     margin: 8px;
     font-size: 36px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
     border: none;
     background-color: #FBFFF1;
     box-sizing: border-box;
