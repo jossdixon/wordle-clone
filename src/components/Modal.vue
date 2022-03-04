@@ -3,6 +3,7 @@
     <div class="modal">
       <h2>You got the Jordle in {{ guessCounter }} {{ (guessCounter === 1) ? 'attempt' : 'attempts' }}.</h2>
       <p>{{ rank }}</p>
+      <p>Refresh the page to try again!</p>
     </div>
   </div>
 </template>

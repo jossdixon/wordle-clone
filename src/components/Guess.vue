@@ -8,6 +8,7 @@
       v-model="first.entry"
       :class="{ present: first.present, placed: first.placed }"
       :disabled="(this.formCounter - 1) !== this.guessCounter"
+      v-on:keyup="$event.target.nextElementSibling.focus()"
     >
     <input
       type="text"
@@ -15,6 +16,7 @@
       v-model="second.entry"
       :class="{ present: second.present, placed: second.placed }"
       :disabled="(this.formCounter - 1) !== this.guessCounter"
+      v-on:keyup="$event.target.nextElementSibling.focus()"
     >
     <input
       type="text"
@@ -22,6 +24,7 @@
       v-model="third.entry"
       :class="{ present: third.present, placed: third.placed }"
       :disabled="(this.formCounter - 1) !== this.guessCounter"
+      v-on:keyup="$event.target.nextElementSibling.focus()"
     >
     <input
       type="text"
@@ -29,6 +32,7 @@
       v-model="fourth.entry"
       :class="{ present: fourth.present, placed: fourth.placed }"
       :disabled="(this.formCounter - 1) !== this.guessCounter"
+      v-on:keyup="$event.target.nextElementSibling.focus()"
     >
     <input
       type="text"
@@ -83,7 +87,8 @@ export default {
   methods: {
     handleSubmit() {
       this.guessResponse = '';
-      const guessJoined = [
+      const guessJoined =
+      [
         this.first.entry.toLowerCase(),
         this.second.entry.toLowerCase(),
         this.third.entry.toLowerCase(),
@@ -93,8 +98,6 @@ export default {
       this.entryError = guessJoined.includes('') ? 'Word is too short' : '';
       if (!this.entryError) {
         while (this.guessResponse === '') {
-          // console.log(this.word.join(''));
-          // console.log(guessJoined.join(''));
           if (guessJoined.join('') === this.word.join('')) {
             this.guessResponse = 'Spot on';
             [this.first, this.second, this.third, this.fourth, this.fifth].forEach(i => i.placed = true);
