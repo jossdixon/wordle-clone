@@ -1,5 +1,7 @@
 <template>
   <h1><strong>JORDLE</strong></h1>
+  <h2 id="orange">Right letter, wrong place.</h2>
+  <h2 id="green">Right letter, right place!</h2>
   <div v-for="n in 6" :key="n">
     <Guess
       :word="word"
@@ -83,6 +85,16 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
+}
+#orange {
+  color: #FF7D00;
+  text-shadow: 2px 2px 4px #474954;
+  letter-spacing: 2px;
+}
+#green {
+  color: #6C9A8B;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px #474954;
 }
 h1 {
   font-size: 48px;
