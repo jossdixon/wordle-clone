@@ -41,9 +41,7 @@
       :class="{ present: fifth.present, placed: fifth.placed }"
       :disabled="(this.formCounter - 1) !== this.guessCounter"
     >
-    <!-- <input type="submit" v-on:keyup.enter > -->
     <div v-if="entryError" class="error">{{ entryError }}</div>
-    <!-- <div v-if="guessResponse" class="error">{{ guessResponse }}</div> -->
     </form>
   </div>
 
@@ -87,25 +85,25 @@ export default {
   methods: {
     handleSubmit() {
       this.guessResponse = '';
-      const guessJoined =
+      const letters =
       [
-        this.first.entry.toLowerCase(),
-        this.second.entry.toLowerCase(),
-        this.third.entry.toLowerCase(),
-        this.fourth.entry.toLowerCase(),
-        this.fifth.entry.toLowerCase()
-      ];
-      this.entryError = guessJoined.includes('') ? 'Word is too short' : '';
+        this.first.entry,
+        this.second.entry,
+        this.third.entry,
+        this.fourth.entry,
+        this.fifth.entry
+      ].map(i => i.toLowerCase());
+      this.entryError = letters.includes('') ? 'Word is too short' : '';
       if (!this.entryError) {
         while (this.guessResponse === '') {
-          if (guessJoined.join('') === this.word.join('')) {
+          if (letters.join('') === this.word.join('')) {
             this.guessResponse = 'Spot on';
             [this.first, this.second, this.third, this.fourth, this.fifth].forEach(i => i.placed = true);
             this.$emit('emitVictory');
           } else {
             this.word.forEach((letter) => {
               switch(letter) {
-                case this.first.entry.toLowerCase():
+                case letters[0]:
                   if (this.word[0] === letter) {
                     this.guessResponse = 'firstplaced';
                     this.first.placed = true;
@@ -114,7 +112,7 @@ export default {
                     this.first.present = true;
                   }
                   break;
-                case this.second.entry.toLowerCase():
+                case letters[1]:
                   if (this.word[1] === letter) {
                     this.guessResponse = 'secondplaced';
                     this.second.placed = true;
@@ -123,7 +121,7 @@ export default {
                     this.second.present = true;
                   }
                   break;
-                case this.third.entry.toLowerCase():
+                case letters[2]:
                   if (this.word[2] === letter) {
                     this.guessResponse = 'thirdplaced';
                     this.third.placed = true;
@@ -132,7 +130,7 @@ export default {
                     this.third.present = true;
                   }
                   break;
-                case this.fourth.entry.toLowerCase():
+                case letters[3]:
                   if (this.word[3] === letter) {
                     this.guessResponse = 'fourthplaced';
                     this.fourth.placed = true;
@@ -141,7 +139,7 @@ export default {
                     this.fourth.present = true;
                   }
                   break;
-                case this.fifth.entry.toLowerCase():
+                case letters[4]:
                   if (this.word[4] === letter) {
                     this.guessResponse = 'fifthplaced';
                     this.fifth.placed = true;
