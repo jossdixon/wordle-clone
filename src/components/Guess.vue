@@ -2,15 +2,22 @@
 
   <div>
     <form @keyup.enter="handleSubmit">
-    <input
+      <div v-for="n in 5" :key="n">
+        <Input
+          :inputCounter="n"
+        />
+      </div>
+      <div v-if="entryError" class="error">{{ entryError }}</div>
+    </form>
+    <!-- <input
       type="text"
       maxlength="1"
       v-model="first.entry"
       :class="{ present: first.present, placed: first.placed }"
       :disabled="(this.formCounter - 1) !== this.guessCounter"
       v-on:keyup="$event.target.nextElementSibling.focus()"
-    >
-    <input
+    > -->
+    <!-- <input
       type="text"
       maxlength="1"
       v-model="second.entry"
@@ -40,19 +47,19 @@
       v-model="fifth.entry"
       :class="{ present: fifth.present, placed: fifth.placed }"
       :disabled="(this.formCounter - 1) !== this.guessCounter"
-    >
+    > -->
     <!-- <input type="submit" v-on:keyup.enter > -->
-    <div v-if="entryError" class="error">{{ entryError }}</div>
     <!-- <div v-if="guessResponse" class="error">{{ guessResponse }}</div> -->
-    </form>
   </div>
 
 </template>
 
 <script>
+import Input from './components/Input.vue'
 
 export default {
   props: ['word', 'formCounter', 'guessCounter'],
+  components: { Input },
   data() {
     return {
       first: {
