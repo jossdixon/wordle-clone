@@ -41,8 +41,8 @@
       :class="{ present: fifth.present, placed: fifth.placed }"
       :disabled="(this.formCounter - 1) !== this.guessCounter"
     >
-    <div v-if="entryError" class="error">{{ entryError }}</div>
     </form>
+    <div v-if="entryError" class="error">{{ entryError }}</div>
   </div>
 
 </template>
@@ -94,6 +94,8 @@ export default {
         this.fifth.entry
       ].map(i => i.toLowerCase());
       this.entryError = letters.includes('') ? 'Word is too short' : '';
+      // const regex = /^[A-Za-z]+$/;
+      // this.entryError = regex.test(letters.join('')) ? '' : 'Letters only, please.';
       if (!this.entryError) {
         while (this.guessResponse === '') {
           if (letters.join('') === this.word.join('')) {
