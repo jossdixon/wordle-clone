@@ -2,6 +2,7 @@
   <h1><strong>JORDLE</strong></h1>
   <h2 id="orange">Right letter, wrong place.</h2>
   <h2 id="green">Right letter, right place!</h2>
+  <h2>Press enter to make your guess...</h2>
   <div v-for="n in 6" :key="n">
     <Guess
       :word="word"
